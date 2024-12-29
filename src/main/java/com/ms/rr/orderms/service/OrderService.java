@@ -24,7 +24,6 @@ public class OrderService {
         entity.setCustomerId(event.codigoCliente());
         entity.setItems(getOrderItems(event));
         entity.setTotal(getTotal(event));
-
         orderRepository.save(entity);
     }
 
