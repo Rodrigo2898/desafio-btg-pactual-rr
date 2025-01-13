@@ -2,6 +2,8 @@ package com.ms.rr.orderms.factory;
 
 import com.ms.rr.orderms.entity.OrderEntity;
 import com.ms.rr.orderms.entity.OrderItem;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -16,6 +18,10 @@ public class OrderEnityFactory {
         orderEntity.setItems(items());
 
         return  orderEntity;
+    }
+
+    public static Page<OrderEntity> buildWithPage() {
+        return new PageImpl<>(List.of(build()));
     }
 
     private static List<OrderItem> items() {
